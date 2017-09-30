@@ -18,7 +18,7 @@ import java.util.Properties;
 @SuppressWarnings("SpringJavaAutowiringInspection")
 @Configuration
 @EnableTransactionManagement
-@MapperScan("com.king.flyme.dao")
+@MapperScan("com.pet.dao")
 public class MyBatisConfiguration {
 
     @Bean

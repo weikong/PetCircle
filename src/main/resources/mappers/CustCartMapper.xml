@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.pet.dao.CustCartMapper">
+<mapper namespace="com.pet.dao.CustAccountMapper">
 
-    <select id="selectCartItems" parameterType="int" resultType="com.king.flyme.bean.Carts">
+    <select id="selectAccountItem" parameterType="int" resultType="com.pet.bean.Account">
         SELECT
-            c.*
-        FROM carts c
-        WHERE c.account_id = #{accountId}
-        ORDER BY c.time DESC
+            a.*
+        FROM Account a
+        WHERE a.id = #{accountId}
     </select>
-
-    <delete id="deleteCartItem" parameterType="java.util.Map">
-        DELETE cart_item
-        FROM cart_item,cart
-        WHERE
-        cart_item.cart_id=cart.id
-        AND cart_item.domain_id = #{domain_id}
-        AND cart.account_id = #{account_id}
-    </delete>
 
 </mapper>

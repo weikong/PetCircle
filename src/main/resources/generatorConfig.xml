@@ -38,12 +38,18 @@
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.king.flyme.dao" targetProject="MAVEN">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.pet.dao" targetProject="MAVEN">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!-- 数据库表配置 -->
         <table tableName="account" domainObjectName="Account">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="dog" domainObjectName="Dog">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="contacts" domainObjectName="Contacts">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

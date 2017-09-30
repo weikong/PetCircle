@@ -8,16 +8,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * Created by xinzhendi-031 on 2017/8/21.
+ * Created by wei.kong
  * 用户相关操作
  */
 @Controller
@@ -31,8 +28,27 @@ public class ContactsController extends AbsController {
     private AccountService accountService;
 
     /**
+     * 添加好友
+     */
+    @GetMapping("add")
+    @ResponseBody
+    public Object addContact(@RequestParam Map param) {
+        try {
+            contactsService.addContact(param);
+            return ajax();
+        } catch (RuntimeException e) {
+            log.error(e.getMessage());
+            return ajax(e);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return ajax(e);
+        }
+    }
+
+    /**
+     * 查询好友
      * 不包含自己
-     * */
+     */
     @GetMapping("select")
     @ResponseBody
     public Object getMyContacts(@RequestParam Map param) {

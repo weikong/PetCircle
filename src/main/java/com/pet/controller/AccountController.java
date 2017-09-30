@@ -38,6 +38,9 @@ public class AccountController extends AbsController {
         }
     }
 
+    /**
+     * 添加新用户
+     * */
     @PostMapping("add/account")
     @ResponseBody
     public Object addAccount(@RequestParam Map param) {
@@ -53,6 +56,9 @@ public class AccountController extends AbsController {
         }
     }
 
+    /**
+     * 通过id查询用户
+     * */
     @GetMapping("select/account")
     @ResponseBody
     public Object selectAccountById(@RequestParam Map param) {

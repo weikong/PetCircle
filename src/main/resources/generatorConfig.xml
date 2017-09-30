@@ -28,7 +28,7 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="com.king.flyme.bean" targetProject="MAVEN">
+        <javaModelGenerator targetPackage="com.pet.bean" targetProject="MAVEN">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
             <property name="rootClass" value="AbsUser"/>
@@ -44,30 +44,6 @@
 
         <!-- 数据库表配置 -->
         <table tableName="account" domainObjectName="Account">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="orders" domainObjectName="Orders">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="order_item" domainObjectName="OrderItem">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="carts" domainObjectName="Carts">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="goods_collect" domainObjectName="GoodsCollect">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="goods_record" domainObjectName="GoodsRecord">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="Address" domainObjectName="Address">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="Product" domainObjectName="Product">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="verification_code" domainObjectName="VerificationCode">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

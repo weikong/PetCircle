@@ -23,6 +23,34 @@ public class AccountService {
     @Autowired
     private AccountMapper accountMapper;
 
+    public Account addAccount(Map param){
+        String name = MapUtils.getString(param,"name");
+        String type = MapUtils.getString(param,"type");
+        String typeName = MapUtils.getString(param,"typeName");
+        String header = MapUtils.getString(param,"header");
+        String sex = MapUtils.getString(param,"sex");
+        float age = MapUtils.getFloat(param,"age");
+        String partner = MapUtils.getString(param,"partner");
+        String partnerheader = MapUtils.getString(param,"partnerheader");
+        String relationship = MapUtils.getString(param,"relationship");
+        String desc = MapUtils.getString(param,"desc");
+        Account account = new Account();
+        account.setName(name);
+        account.setType(type);
+        account.setTypename(typeName);
+        account.setHeader(header);
+        account.setSex(sex);
+        account.setAge(age);
+        account.setPartner(partner);
+        account.setPartnerheader(partnerheader);
+        account.setRelationship(relationship);
+        account.setDesc(desc);
+        int insert = accountMapper.insertSelective(account);
+        if (insert != 1)
+            throw new RuntimeException("Account insert error");
+        return account;
+    }
+
     public Account getAccountById(Map param){
         int id = MapUtils.getInteger(param,"id",-1);
         Account account = accountMapper.selectByPrimaryKey(id);

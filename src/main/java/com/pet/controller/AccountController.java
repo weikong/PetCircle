@@ -7,10 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -28,11 +25,6 @@ public class AccountController extends AbsController {
     @Autowired
     private AccountService accountService;
 
-    @GetMapping("index")
-    public String index() {
-        return "index";
-    }
-
     @GetMapping("/login")
     public String login(@RequestParam Map param) {
         try {
@@ -46,12 +38,12 @@ public class AccountController extends AbsController {
         }
     }
 
-    @GetMapping("add/account")
+    @PostMapping("add/account")
     @ResponseBody
     public Object addAccount(@RequestParam Map param) {
         try {
-//            accountService.addAccount(param);
-            return "home";
+            accountService.addAccount(param);
+            return ajax();
         } catch (RuntimeException e) {
             log.error(e.getMessage());
             return ajax(e);
@@ -63,7 +55,7 @@ public class AccountController extends AbsController {
 
     @GetMapping("select/account")
     @ResponseBody
-    public Object getMyAccount(@RequestParam Map param) {
+    public Object selectAccountById(@RequestParam Map param) {
         try {
             Account account = accountService.getAccountById(param);
             return ajax(account);
